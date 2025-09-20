@@ -36,7 +36,7 @@ export default function MainContainer({ item, index }: MainContainerProps) {
   return (
     <article className={cn("group relative lg:h-[calc(100svh-2rem)]")}>
       <RevealOnView
-        delay={index * 0.5}
+        delay={index * 2}
         className="rounded-3xl border border-white/10 p-1 shadow-[0_10px_60px_-10px_rgba(0,0,0,0.6)] lg:h-full"
       >
         <div className="relative overflow-hidden rounded-[1.35rem] bg-black lg:h-full">
