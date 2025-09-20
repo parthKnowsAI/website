@@ -1,6 +1,6 @@
 "use client";
-import AnimatedHeading from "@/components/animated-heading";
 import DotGridShader from "@/components/dot-grid-shader";
+import BlurFadeText from "@/components/magic-ui/blur-fade-text";
 import MainContainer from "@/components/main-container";
 import { NavDock } from "@/components/nav-dock";
 import { NumberTicker } from "@/components/number-ticker";
@@ -58,6 +58,8 @@ export default function Home() {
     },
   ];
 
+  const BLUR_FADE_DELAY = 0.04;
+
   return (
     <main className="bg-neutral-950 text-white">
       {/* HERO: full-viewport row. Left is sticky; right scrolls internally. */}
@@ -90,10 +92,11 @@ export default function Home() {
                   />
                 </div>
 
-                {/* Headline with intro blur effect */}
-                <AnimatedHeading
-                  className="text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl"
-                  lines={["Keeping you at", "the forefront", "of AI"]}
+                <BlurFadeText
+                  delay={BLUR_FADE_DELAY}
+                  className="text-3xl font-bold tracking-tighter sm:text-4xl xl:text-5xl/none text-white"
+                  yOffset={8}
+                  text={`Keeping you at the forefront of AI`}
                 />
 
                 <p className="mt-4 max-w-[42ch] text-lg text-white/70">
