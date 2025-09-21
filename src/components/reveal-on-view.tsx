@@ -83,7 +83,7 @@ export default function RevealOnView({
       }
     : baseStyles;
 
-  // If staggering children, add styles to each child
+  // If staggering children
   const processedChildren = staggerChildren
     ? React.Children.map(children, (child, index) => {
         if (!React.isValidElement(child)) return child;
