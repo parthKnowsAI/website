@@ -1,7 +1,7 @@
 import { cn } from "@/lib/cn";
 import RevealOnView from "./reveal-on-view";
 import { Highlighter } from "./ui/highlighter";
-import { AIContentItem } from "@/app/page";
+import { AIContentItem } from "./parth-knows-ai-main";
 
 export function renderSubtitleWithHighlight(
   subtitle: string,
