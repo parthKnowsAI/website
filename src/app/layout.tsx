@@ -79,7 +79,7 @@ export const metadata: Metadata = {
 
   // Verification
   verification: {
-    google: "your-google-verification-code",
+    google: "ihxAWUUDq8BvyEtKJOlnAmGt39FQeFzy0y24B6YuqLQ",
   },
 
   // Canonical URL
