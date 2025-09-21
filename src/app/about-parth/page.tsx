@@ -4,9 +4,16 @@ import { NavDock } from "@/components/nav-dock";
 import { ResumeCard } from "@/components/resume-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { DATA } from "@/data/resume";
+import { Metadata } from "next";
 import Link from "next/link";
 
 const BLUR_FADE_DELAY = 0.04;
+
+export const metadata: Metadata = {
+  title: "Who is Parth Patel? | About Me",
+  description:
+    "Software Engineer turned AI Engineer helping people understand AI through simple, visual explanations.",
+};
 
 export default function AboutParth() {
   return (
