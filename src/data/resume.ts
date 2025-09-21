@@ -34,7 +34,7 @@ export const DATA = {
   ],
   work: [
     {
-      company: "ParthKnowsAI (Influencer)",
+      company: "ParthKnowsAI",
       badges: [],
       location: "Remote",
       title: "Educating the world about AI",

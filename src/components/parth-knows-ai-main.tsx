@@ -135,7 +135,7 @@ export default function ParthKnowsAIMain() {
                       className="hover:underline group"
                     >
                       <p className="flex items-center mt-1">
-                        More about Parth{" "}
+                        About Parth
                         <ChevronRight
                           size={18}
                           className="mt-1 group-hover:translate-x-1 transition-transform duration-200"

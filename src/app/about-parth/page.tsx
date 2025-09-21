@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 export default function AboutParth() {
   return (
-    <div className="bg-neutral-950 min-h-screen">
+    <div className="bg-neutral-950 min-h-screen px-8">
       <main className="flex flex-col items-center min-h-[100dvh] py-20 pb-24">
         <div className="w-full max-w-2xl space-y-10">
           <section id="hero">
