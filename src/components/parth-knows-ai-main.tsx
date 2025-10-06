@@ -111,7 +111,7 @@ export default function ParthKnowsAIMain() {
                   </p>
                   <div className="mb-4">
                     <NumberTicker
-                      value={80}
+                      value={120}
                       suffix="K+"
                       className="whitespace-pre-wrap text-5xl font-medium tracking-tighter text-gray dark:text-white"
                     />
