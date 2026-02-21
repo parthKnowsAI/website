@@ -3,9 +3,9 @@
 import { PageHeader } from "@/components/page-header";
 import { BCMASReviewsFooter } from "@/components/testimonial-card";
 import { testimonials } from "@/data/testimonials";
-import { Home, Mail, Youtube } from "lucide-react";
+import { Home, Mail, YoutubeIcon } from "lucide-react";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 // Social media icons with proper typing
 const Icons = {
@@ -59,12 +59,53 @@ const socialLinks = [
     label: "LinkedIn",
   },
   {
-    icon: Youtube,
+    icon: YoutubeIcon,
     href: "https://www.youtube.com/@parthknowsai",
     label: "YouTube",
   },
   { icon: Mail, href: "mailto:parthknowsai@gmail.com", label: "Email" },
 ];
+
+// Animation component for revealing elements
+function RevealOnScroll({
+  children,
+  delay = 0,
+}: {
+  children: React.ReactNode;
+  delay?: number;
+}) {
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => setIsVisible(true), delay);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 },
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => observer.disconnect();
+  }, [delay]);
+
+  return (
+    <div
+      ref={ref}
+      className={`transition-all duration-700 ease-out ${
+        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+      }`}
+    >
+      {children}
+    </div>
+  );
+}
 
 export default function WallOfLovePage() {
   return (
@@ -75,51 +116,67 @@ export default function WallOfLovePage() {
         <section className="relative px-4 py-16 lg:py-24">
           <div className="max-w-6xl mx-auto text-center">
             {/* Stars */}
-            <div className="flex justify-center gap-2 mb-8">
-              {[...Array(5)].map((_, i) => (
-                <svg
-                  key={i}
-                  className="w-8 h-8 text-yellow-400 fill-current"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                </svg>
-              ))}
-            </div>
+            <RevealOnScroll delay={0}>
+              <div className="flex justify-center gap-2 mb-8">
+                {[...Array(5)].map((_, i) => (
+                  <svg
+                    key={i}
+                    className="w-8 h-8 text-yellow-400 fill-current"
+                    viewBox="0 0 24 24"
+                    style={{
+                      animation: `fadeInScale 0.5s ease-out ${i * 0.1}s both`,
+                    }}
+                  >
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                  </svg>
+                ))}
+              </div>
+            </RevealOnScroll>
 
             {/* Title */}
-            <h1 className="text-5xl lg:text-7xl font-bold mb-6">
-              Wall of love
-            </h1>
+            <RevealOnScroll delay={200}>
+              <h1 className="text-5xl lg:text-7xl font-bold mb-6">
+                Wall of love
+              </h1>
+            </RevealOnScroll>
 
             {/* Description */}
-            <p className="text-xl lg:text-2xl text-white/70 max-w-4xl mx-auto mb-12 leading-relaxed">
-              Parth&apos;s AI content has been receiving tremendous positive
-              feedback and love from his community. From breaking down complex
-              research papers to making AI accessible for everyone, his
-              followers consistently share how his insights have transformed
-              their understanding of artificial intelligence.
-            </p>
+            <RevealOnScroll delay={300}>
+              <p className="text-xl lg:text-2xl text-white/70 max-w-4xl mx-auto mb-12 leading-relaxed">
+                Parth&apos;s AI content has been receiving tremendous positive
+                feedback and love from his community. From breaking down complex
+                research papers to making AI accessible for everyone, his
+                followers consistently share how his insights have transformed
+                their understanding of artificial intelligence.
+              </p>
+            </RevealOnScroll>
 
             {/* Social Icons */}
-            <div className="flex justify-center gap-4 flex-wrap">
-              {socialLinks.map((social, index) => (
-                <Link
-                  key={index}
-                  href={social.href}
-                  target={social.href.startsWith("http") ? "_blank" : undefined}
-                  rel={
-                    social.href.startsWith("http")
-                      ? "noopener noreferrer"
-                      : undefined
-                  }
-                  aria-label={social.label}
-                  className="p-3 rounded-lg border border-white/20 hover:bg-white/10 hover:border-white/30 text-white transition-all duration-200"
-                >
-                  <social.icon className="h-5 w-5" />
-                </Link>
-              ))}
-            </div>
+            <RevealOnScroll delay={400}>
+              <div className="flex justify-center gap-4 flex-wrap">
+                {socialLinks.map((social, index) => (
+                  <Link
+                    key={index}
+                    href={social.href}
+                    target={
+                      social.href.startsWith("http") ? "_blank" : undefined
+                    }
+                    rel={
+                      social.href.startsWith("http")
+                        ? "noopener noreferrer"
+                        : undefined
+                    }
+                    aria-label={social.label}
+                    className="p-3 rounded-lg border border-white/20 hover:bg-white/10 hover:border-white/30 text-white transition-all duration-200 hover:scale-110"
+                    style={{
+                      animation: `fadeInUp 0.5s ease-out ${index * 0.1 + 0.5}s both`,
+                    }}
+                  >
+                    <social.icon className="h-5 w-5" />
+                  </Link>
+                ))}
+              </div>
+            </RevealOnScroll>
           </div>
         </section>
 
@@ -128,17 +185,43 @@ export default function WallOfLovePage() {
           <div className="max-w-6xl mx-auto">
             <div className="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
               {testimonials.map((testimonial, index) => (
-                <div key={index} className="break-inside-avoid mb-8">
-                  <BCMASReviewsFooter
-                    name={testimonial.handle}
-                    description={testimonial.comment}
-                  />
-                </div>
+                <RevealOnScroll key={index} delay={index * 50}>
+                  <div className="break-inside-avoid mb-8">
+                    <BCMASReviewsFooter
+                      name={testimonial.handle}
+                      description={testimonial.comment}
+                    />
+                  </div>
+                </RevealOnScroll>
               ))}
             </div>
           </div>
         </section>
       </main>
+
+      <style jsx global>{`
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes fadeInScale {
+          from {
+            opacity: 0;
+            transform: scale(0.5);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+      `}</style>
     </>
   );
 }

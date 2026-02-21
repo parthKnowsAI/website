@@ -114,7 +114,7 @@ export function NavDock() {
                     aria-label={item.label}
                     className={cn(
                       buttonVariants({ variant: "ghost", size: "icon" }),
-                      "size-12 rounded-full hover:bg-white/10 text-white",
+                      "size-12 rounded-full hover:bg-white/10 text-white hover:scale-110 transition-all duration-300",
                     )}
                   >
                     <item.icon className="size-4" />
@@ -136,7 +136,7 @@ export function NavDock() {
                     aria-label={social.name}
                     className={cn(
                       buttonVariants({ variant: "ghost", size: "icon" }),
-                      "size-12 rounded-full hover:bg-white/10 text-white",
+                      "size-12 rounded-full hover:bg-white/10 text-white hover:scale-110 transition-all duration-300",
                     )}
                   >
                     <social.icon className="size-4" />
