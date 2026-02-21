@@ -78,6 +78,11 @@ const DATA = {
         url: "https://www.linkedin.com/in/parth-patel-093652181/",
         icon: Icons.linkedin,
       },
+      YouTube: {
+        name: "YouTube",
+        url: "https://www.youtube.com/@parthknowsai",
+        icon: Icons.youtube,
+      },
       Instagram: {
         name: "Instagram",
         url: "https://www.instagram.com/parthknowsai/",
@@ -109,7 +114,7 @@ export function NavDock() {
                     aria-label={item.label}
                     className={cn(
                       buttonVariants({ variant: "ghost", size: "icon" }),
-                      "size-12 rounded-full hover:bg-white/10 text-white"
+                      "size-12 rounded-full hover:bg-white/10 text-white",
                     )}
                   >
                     <item.icon className="size-4" />
@@ -131,7 +136,7 @@ export function NavDock() {
                     aria-label={social.name}
                     className={cn(
                       buttonVariants({ variant: "ghost", size: "icon" }),
-                      "size-12 rounded-full hover:bg-white/10 text-white"
+                      "size-12 rounded-full hover:bg-white/10 text-white",
                     )}
                   >
                     <social.icon className="size-4" />

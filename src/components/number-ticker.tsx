@@ -27,8 +27,8 @@ export function NumberTicker({
   const ref = useRef<HTMLSpanElement>(null);
   const motionValue = useMotionValue(direction === "down" ? value : startValue);
   const springValue = useSpring(motionValue, {
-    damping: 60,
-    stiffness: 100,
+    damping: 80,
+    stiffness: 60,
   });
   const isInView = useInView(ref, { once: true, margin: "0px" });
 
@@ -53,7 +53,7 @@ export function NumberTicker({
           ref.current.textContent = formattedNumber + suffix;
         }
       }),
-    [springValue, decimalPlaces, suffix]
+    [springValue, decimalPlaces, suffix],
   );
 
   return (
@@ -61,7 +61,7 @@ export function NumberTicker({
       ref={ref}
       className={cn(
         "inline-block tabular-nums tracking-wider text-black dark:text-white",
-        className
+        className,
       )}
       {...props}
     >
