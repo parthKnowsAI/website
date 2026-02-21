@@ -10,9 +10,34 @@ import Link from "next/link";
 const BLUR_FADE_DELAY = 0.04;
 
 export const metadata: Metadata = {
-  title: "Who is Parth Patel? | About Me",
+  title: "About Parth Patel - AI Engineer & Educator",
   description:
-    "Software Engineer turned AI Engineer helping people understand AI through simple, visual explanations.",
+    "Software Engineer turned AI Engineer helping people understand AI through simple, visual explanations. Based in New York, working at ACMA in pharmaceutical AI.",
+  keywords: [
+    "Parth Patel",
+    "AI Engineer New York",
+    "AI educator",
+    "machine learning engineer",
+    "pharmaceutical AI",
+    "ACMA",
+  ],
+  openGraph: {
+    title: "About Parth Patel - AI Engineer & Educator",
+    description:
+      "Software Engineer turned AI Engineer helping people understand AI through simple, visual explanations.",
+    url: "https://www.parthknowsai.com/about-parth",
+    siteName: "ParthKnowsAI",
+    type: "profile",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About Parth Patel - AI Engineer & Educator",
+    description:
+      "Software Engineer turned AI Engineer helping people understand AI through simple, visual explanations.",
+  },
+  alternates: {
+    canonical: "https://www.parthknowsai.com/about-parth",
+  },
 };
 
 export default function AboutParth() {

@@ -143,11 +143,7 @@ export default function WallOfLovePage() {
             {/* Description */}
             <RevealOnScroll delay={300}>
               <p className="text-xl lg:text-2xl text-white/70 max-w-4xl mx-auto mb-12 leading-relaxed">
-                Parth&apos;s AI content has been receiving tremendous positive
-                feedback and love from his community. From breaking down complex
-                research papers to making AI accessible for everyone, his
-                followers consistently share how his insights have transformed
-                their understanding of artificial intelligence.
+                Real feedback from people who follow Parth&apos;s AI content.
               </p>
             </RevealOnScroll>
 
