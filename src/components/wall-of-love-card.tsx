@@ -4,6 +4,7 @@ export interface Testimonial {
   comment: string;
   handle: string;
   platform: "tiktok" | "instagram" | "youtube";
+  highlight?: string;
 }
 
 interface TestimonialCardProps {

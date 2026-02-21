@@ -34,6 +34,8 @@ export const metadata: Metadata = {
     "ML Engineer NYC",
     "AI Insights",
     "Parth Patel AI",
+    "Parth Knows AI",
+    "Parth AI",
   ],
 
   // Author and classification

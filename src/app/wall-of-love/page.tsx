@@ -186,6 +186,7 @@ export default function WallOfLovePage() {
                     <BCMASReviewsFooter
                       name={testimonial.handle}
                       description={testimonial.comment}
+                      highlight={testimonial.highlight}
                     />
                   </div>
                 </RevealOnScroll>
